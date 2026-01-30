@@ -1,2 +1,7 @@
+export default class Movie {
+  constructor(name, price) {
+    this.name = name;
+    this.price = price;
+  }
+}
 
-// Movie class will be implemented in Phase 3
