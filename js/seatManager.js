@@ -1,27 +1,23 @@
 export default class SeatManager {
-  constructor(containerSelector) {
+  constructor(containerSelector, onSeatChange) {
     this.container = document.querySelector(containerSelector);
-
-    if (!this.container) {
-      throw new Error("Seat container not found");
-    }
+    this.onSeatChange = onSeatChange;
 
     this.initializeSeatClickHandling();
   }
 
   initializeSeatClickHandling() {
     this.container.addEventListener("click", (event) => {
-      const clickedElement = event.target;
+      const seat = event.target;
 
-      if (!clickedElement.classList.contains("seat")) {
-        return;
+      if (!seat.classList.contains("seat")) return;
+      if (seat.classList.contains("occupied")) return;
+
+      seat.classList.toggle("selected");
+
+      if (this.onSeatChange) {
+        this.onSeatChange(this.getSelectedSeatCount());
       }
-
-      if (clickedElement.classList.contains("occupied")) {
-        return;
-      }
-
-      clickedElement.classList.toggle("selected");
     });
   }
 

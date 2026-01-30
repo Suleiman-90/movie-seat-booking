@@ -1,2 +1,8 @@
-// UI update logic (seat count and total price)
-// will be implemented in Phase 6
+export function updateSummary(selectedSeats, moviePrice) {
+  const countElement = document.getElementById("count");
+  const totalElement = document.getElementById("total");
+
+  countElement.textContent = selectedSeats;
+  totalElement.textContent = selectedSeats * moviePrice;
+}
+

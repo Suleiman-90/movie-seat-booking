@@ -1,9 +1,8 @@
 import SeatManager from "./seatManager.js";
 import { getMovies } from "./movieService.js";
+import { updateSummary } from "./ui.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
-  new SeatManager(".container");
-
   const movieSelect = document.getElementById("movie");
   const movies = await getMovies();
 
@@ -14,11 +13,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     movieSelect.appendChild(option);
   });
 
-  // Store selected movie index for later phases
   let selectedMovieIndex = movieSelect.value;
+
+  const seatManager = new SeatManager(".container", (selectedSeats) => {
+    const moviePrice = movies[selectedMovieIndex].price;
+    updateSummary(selectedSeats, moviePrice);
+  });
 
   movieSelect.addEventListener("change", (event) => {
     selectedMovieIndex = event.target.value;
+    const selectedSeats = seatManager.getSelectedSeatCount();
+    const moviePrice = movies[selectedMovieIndex].price;
+    updateSummary(selectedSeats, moviePrice);
   });
 });
 
