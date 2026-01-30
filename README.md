@@ -110,9 +110,9 @@ Applikationen är publicerad med GitHub Pages. Eftersom GitHub Pages inte stödj
 
 🔗 Inlämningslänkar
 GitHub-repositorium:
- 👉 <(https://github.com/Suleiman-90/movie-seat-booking.git)>
+ 👉 https://github.com/Suleiman-90/movie-seat-booking.git
 GitHub Pages (Live-version):
- 👉 <https://suleiman-90.github.io/movie-seat-booking/>
+ 👉 https://suleiman-90.github.io/movie-seat-booking
 
 🧠 Hur man Kör Projektet Lokalt
 Öppna index.html direkt i en webbläsare
